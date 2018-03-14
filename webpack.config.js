@@ -5,6 +5,12 @@ var path = require('path');
 var SRC = path.resolve(__dirname, 'src');
 var OUT = path.resolve(__dirname, 'build');
 
+var html = new htmlPlugin({
+    hash: true,
+    filename: '../index.html',
+    template: 'src/index.html'
+});
+
 var config = {
     entry: SRC + '/app/index.js',
     output: {
@@ -13,20 +19,16 @@ var config = {
         publicPath: '/app/'
     },
     module: {
-        loaders: [
-            {
-                test: /\.js?/,
-                include: SRC,
-                loader: 'babel-loader',
-                query: {
-                    presets: ['react']
-                }
-            }
+        rules: [
+            { test: /\.js?/, exclude: /node_modules/, loader: 'babel-loader' }
         ]
     },
     plugins: [
-        new htmlPlugin()
-    ]
+        html
+    ],
+    devServer: {
+        contentBase: './build'
+    }
 };
 
 module.exports = config;
