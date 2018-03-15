@@ -12,7 +12,7 @@ var html = new htmlPlugin({
 });
 
 var config = {
-    entry: SRC + '/app/index.js',
+    entry: SRC + '/index.js',
     output: {
         path: OUT + '/app',
         filename: 'bundle.js',
@@ -20,7 +20,8 @@ var config = {
     },
     module: {
         rules: [
-            { test: /\.js?/, exclude: /node_modules/, loader: 'babel-loader' }
+            { test: /\.js?/, exclude: /node_modules/, loader: 'babel-loader' },
+            { test: /\.scss?/, exclude: /node_modules/, loader: 'sass-loader' }
         ]
     },
     plugins: [
