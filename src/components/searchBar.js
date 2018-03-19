@@ -4,22 +4,25 @@ export class SearchBar extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            search: props.search
-        };
     }
 
     render() {
         return (
-            <div>
-                <input type="text" value={this.state.search}/>
-                <button type="submit" onClick={this.search.bind(this)}>Buscar</button>
-            </div>
+            <form onSubmit={this.submit.bind(this)}>
+                <input
+                    type="text"
+                    ref={(node)=>this.query=node}
+                    value={this.props.search}/>
+                <button type="submit">
+                    Buscar
+                </button>
+            </form>
         );
     }
 
-    search() {
-        console.log(this.state.search);
+    submit(e) {
+        e.preventDefault();
+        console.log(this.query.value);
         // fetch('')
     }
 }
