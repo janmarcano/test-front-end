@@ -1,37 +1,39 @@
-module.exports = function (req, res) {
+const request = require('request');
 
-    const list = {
-        author: {
-            name: 'Jan',
-            lastname: 'Marcano'
-        },
-        categories: ["Electrónica, Audio y Video","Audio Portátil  y Radios", "iPod", "Reproductores"],
-        items: [
-            {
-                id: "MLA699564594",
-                title: "Apple Ipod Nano 7ma Gen 16gb Garantia Oficial - Sellado",
-                price: {
-                    currency: "ARS",
-                    amount: 6649,
-                    decimals: 0
-                },
-                picture: "http://mla-s1-p.mlstatic.com/883564-MLA26624219022_012018-I.jpg",
-                condition: "new",
-                free_shipping: true
-            },
-            {
-                id: "MLA669350488",
-                title: "Ipod Nano 16gb Rosa 7g Nuevo Original Apple Sellado Garantía",
-                price: {
-                    currency: "ARS",
-                    amount: 7575,
-                    decimals: 0
-                },
-                picture: "http://mla-s1-p.mlstatic.com/613953-MLA25649425371_062017-I.jpg",
-                condition: "used",
-                free_shipping: true
+module.exports = function (req, res) {
+    request('https://api.mercadolibre.com/sites/MLA/search?q=apple%20ipod', function(error, response, body) {
+        if (!error && body.results) {
+            var categories = [];
+            if (body.filters[0] && body.filters[0].values[0]) {
+                categories = body.filters[0].values[0].path_from_root.map((category) => {return category.name});
             }
-        ]
-    }
-    res.send(list);
+            var items = body.results.slice(0,4);
+            items = items.map((item) => {
+                var amount = Math.floor(item.price);
+                var decimals = +(item.price%1).toFixed(2).substring(2);
+                return {
+                    id: item.id,
+                    title: item.title,
+                    price: {
+                        currency: item.currency_id,
+                        amount: amount,
+                        decimals: decimals
+                    },
+                    picture: item.thumbnail,
+                    condition: item.condition,
+                    free_shipping: item.shipping.free_shipping
+                }
+            });
+
+            const list = {
+                author: {
+                    name: 'Jan',
+                    lastname: 'Marcano'
+                },
+                categories: categories,
+                items: items
+            }
+            res.send(list);
+        }
+    });
 }
