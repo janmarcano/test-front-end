@@ -26,10 +26,7 @@ var config = {
     },
     plugins: [
         html
-    ],
-    devServer: {
-        contentBase: './build'
-    }
+    ]
 };
 
 module.exports = config;
