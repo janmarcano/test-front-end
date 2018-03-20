@@ -1,5 +1,7 @@
 const request = require('request');
 
+const errorML = require('./errorML');
+
 module.exports = function (req, res) {
     const query = req.query.q || '';
     request('https://api.mercadolibre.com/sites/MLA/search?q='+query, function(error, response, body) {
@@ -24,7 +26,8 @@ module.exports = function (req, res) {
                         },
                         picture: item.thumbnail,
                         condition: item.condition,
-                        free_shipping: item.shipping ? item.shipping.free_shipping : false
+                        free_shipping: item.shipping ? item.shipping.free_shipping : false,
+                        address: item.address ? item.address.state_name : ''
                     }
                 });
 
@@ -38,6 +41,8 @@ module.exports = function (req, res) {
                 }
                 res.send(list);
             }
+        } else {
+            res.send(errorML);
         }
     });
 }
