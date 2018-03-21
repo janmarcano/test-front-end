@@ -1,6 +1,6 @@
-var htmlPlugin = require('html-webpack-plugin');
 var webpack = require('webpack');
 var path = require('path');
+var htmlPlugin = require('html-webpack-plugin');
 
 var SRC = path.resolve(__dirname, 'src');
 var OUT = path.resolve(__dirname, 'build');
@@ -22,7 +22,7 @@ var config = {
     module: {
         rules: [
             { test: /\.js?/, exclude: /node_modules/, loader: 'babel-loader' },
-            { test: /\.scss?/, exclude: /node_modules/, loader: 'sass-loader' }
+            { test: /\.scss?/, exclude: /node_modules/, loader: ['style-loader','css-loader','sass-loader'] }
         ]
     },
     plugins: [
