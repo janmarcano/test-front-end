@@ -2,6 +2,7 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 const queryString =  require('query-string');
 
+require('./stylesheets/main.scss');
 import { SearchBar } from './components/common/searchBar';
 import { Items } from './components/items/items';
 import { PageNotFound } from './components/common/pageNotFound';

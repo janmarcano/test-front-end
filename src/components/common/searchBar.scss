@@ -1,0 +1,19 @@
+@import '../../stylesheets/grid';
+
+.search-bar {
+  @include row();
+  background-color: aqua;
+}
+
+.logo {
+  @include col(1);
+  background-color: blueviolet;
+}
+.c1 {
+  @include col(1);
+  background-color: blueviolet;
+}
+.c2 {
+  @include col(2);
+  background-color: yellow;
+}

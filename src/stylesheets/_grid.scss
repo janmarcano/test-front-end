@@ -1,0 +1,19 @@
+@import 'variables';
+
+$row-padding: 2em;
+$col-amount: 12;
+$col-gap: 0.5em;
+$col-size: calc(100% - #{($col-gap/2)*($col-amount - 1)});
+
+@mixin row() {
+  padding: 0 $row-padding;
+}
+
+@mixin col($col, $first: false, $last: false) {
+  width: calc(#{$col-size} + #{($col-gap/2)*($col - 1)});
+  font-size: $font-md;
+  display: inline-block;
+  padding: 0 $col-gap;
+  padding-left: if($first, 0, $col-gap);
+  padding-right: if($last, 0, $col-gap);
+}

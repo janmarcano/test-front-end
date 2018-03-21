@@ -1,0 +1,10 @@
+@import '~meyer-reset-sass';
+@import '_variables';
+
+body {
+  font-family: $main-font;
+}
+
+.container {
+  width: 100%;
+}
