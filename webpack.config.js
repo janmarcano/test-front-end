@@ -8,7 +8,8 @@ var OUT = path.resolve(__dirname, 'build');
 var html = new htmlPlugin({
     hash: true,
     filename: '../index.html',
-    template: 'src/index.html'
+    template: 'src/index.html',
+    favicon: 'src/favicon.ico'
 });
 
 var config = {
