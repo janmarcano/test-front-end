@@ -4,25 +4,25 @@ export class SearchBar extends React.Component {
 
     constructor(props) {
         super(props);
+        this.handleSearchSubmit = this.handleSearchSubmit.bind(this);
+    }
+
+    handleSearchSubmit(e) {
+        e.preventDefault();
+        this.props.onSearchSubmit(this.query.value);
     }
 
     render() {
         return (
-            <form onSubmit={this.submit.bind(this)}>
+            <form onSubmit={this.handleSearchSubmit}>
                 <input
-                    type="text"
                     ref={(node)=>this.query=node}
-                    value={this.props.search}/>
+                    defaultValue={this.props.search}
+                    type="text"/>
                 <button type="submit">
                     Buscar
                 </button>
             </form>
         );
-    }
-
-    submit(e) {
-        e.preventDefault();
-        console.log(this.query.value);
-        // fetch('')
     }
 }
