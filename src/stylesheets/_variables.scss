@@ -1,6 +1,3 @@
-//@import '~node-neat';
-
-
 // Colors
 $yellow: #FFE600;
 $black: #333333;
@@ -23,6 +20,22 @@ $font-md: 18px;
 $font-lg: 24px;
 $font-xl: 46px;
 
-// Separations
+// Layout
+$container-radius: 4px;
 $small-space: 16px;
 $big-space: 32px;
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+) !default;
+
+
+// Forms
+$form-group-radius: 2px;
+$form-group-padding: 10px 16px;
+
+// Images
+$image-radius: 4px;

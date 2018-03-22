@@ -1,10 +1,81 @@
-@import '~meyer-reset-sass';
+@import '~bootstrap/scss/bootstrap-reboot';
+@import '~bootstrap/scss/bootstrap-grid';
+@import '~bootstrap/scss/utilities/text';
 @import '_variables';
 
 body {
+  background-color: $light-gray;
   font-family: $main-font;
 }
 
-.container {
+@include media-breakpoint-up(sm) {
+  .container-fluid {
+    padding-left: 5em;
+    padding-right: 5em;
+  }
+}
+
+%button {
+  outline: none;
+  border: none;
+  font-size: $font-md;
+}
+
+%input {
+  outline: none;
+  border: none;
+  font-size: $font-md;
+  color: $gray;
+}
+
+%form-group-child {
+  padding: $form-group-padding;
+  &:first-child {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  &:last-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  &:not(:first-child):not(:last-child) {
+    border-radius: 0;
+  }
+}
+
+.input-group {
   width: 100%;
+
+  input {
+    @extend %input;
+    flex: 1 1 auto;
+    border-radius: $form-group-radius;
+    @extend %form-group-child;
+  }
+
+  button {
+    @extend %button;
+    flex: 0 0 auto;
+    background-color: $light-gray;
+    border-radius: $form-group-radius;
+    @extend %form-group-child;
+  }
+}
+
+.primary-button {
+  background-color: $blue;
+  padding: $small-space;
+  width: 100%;
+}
+
+%a {
+  color: $black;
+  text-decoration: none;
+}
+
+a {
+  @extend %a;
+  &:hover {
+    @extend %a;
+  }
 }
