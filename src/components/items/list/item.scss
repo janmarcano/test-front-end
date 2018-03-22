@@ -29,16 +29,16 @@
       font-size: $font-lg;
     }
     .decimals {
-      font-size: $font-md;
+      font-size: $font-sm;
       position: relative;
-      bottom: 4px;
+      bottom: 6px;
     }
     .shipping {
       position: relative;
       top: 2px;
       padding-left: 8px;
       img {
-        zoom: 0.6;
+        zoom: 0.5;
       }
      }
   }
