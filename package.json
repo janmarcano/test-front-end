@@ -24,7 +24,6 @@
   "author": "Jan Marcano",
   "license": "MIT",
   "dependencies": {
-    "meyer-reset-sass": "^1.0.1",
     "query-string": "^6.0.0",
     "react": "^16.2.0",
     "react-bytesize-icons": "^0.8.2",
@@ -36,6 +35,7 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "bootstrap": "^4.0.0",
+    "meyer-reset-sass": "^1.0.1",
     "concurrently": "^3.5.1",
     "css-loader": "^0.28.11",
     "express": "^4.16.3",

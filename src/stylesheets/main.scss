@@ -80,6 +80,10 @@ body {
   width: 100%;
 }
 
+.message {
+  padding-top: $small-space;
+}
+
 %a {
   color: $black;
   text-decoration: none;

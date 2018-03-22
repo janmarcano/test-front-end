@@ -85,7 +85,7 @@ export class ItemDetail extends React.Component {
                         </div>
                         {!!item.description && (
                         <div className='row xs-text-center'>
-                            <div className='col-lg-9 col-xl-7'>
+                            <div className='col-xl-9'>
                                 <div className='description'>
                                     <div className='title'>Descripción del producto</div>
                                     <div className='content'>{item.description}</div>
@@ -97,7 +97,7 @@ export class ItemDetail extends React.Component {
                 </div>
             );
         } else if (this.state.noResults) {
-            return <span>No existe el producto solicitado</span>
+            return <h3 className='message text-center'>No existe el producto solicitado</h3>
         } else return null;
     }
 

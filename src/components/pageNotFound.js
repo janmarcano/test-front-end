@@ -1,7 +1,5 @@
 import React from 'react';
 
-import './pageNotFound.scss';
-
 export function PageNotFound() {
     return (
         <div className='container-fluid'>
