@@ -1,6 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-require('./searchBar.scss');
+import './searchBar.scss';
+
+const ic_search = require('../../assets/ic_search.png');
+const logo_ml = require('../../assets/logo_ml.png');
 
 export class SearchBar extends React.Component {
 
@@ -16,24 +20,29 @@ export class SearchBar extends React.Component {
 
     render() {
         return (
-            <div>
-                <div className='search-bar'>
-                    <div className="logo">
-                        <form onSubmit={this.handleSearchSubmit}>
-                            <input
-                                ref={(node)=>this.query=node}
-                                defaultValue={this.props.search}
-                                type="text"/>
-                            <button type="submit">
-                                Buscar
-                            </button>
-                        </form>
+            <div className='container-fluid search-container'>
+                <div className='row justify-content-center'>
+                    <div className='col-md-10'>
+                        <div className='row'>
+                            <div className='col-sm-auto align-self-center text-center'>
+                                <Link to='/'>
+                                    <img className='logo' alt="MercadoLibre" src={logo_ml}/>
+                                </Link>
+                            </div>
+                            <div className='col'>
+                                <form className='input-group d-flex' onSubmit={this.handleSearchSubmit}>
+                                    <input
+                                        ref={(node)=>this.query=node}
+                                        defaultValue={this.props.search}
+                                        placeholder="Nunca dejes de buscar"
+                                        type="text"/>
+                                    <button className='search-button' type="submit" alt="Buscar">
+                                        <img src={ic_search}/>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
                     </div>
-                    <div className="c1">s</div>
-                    <div className="c2">s</div>
-                </div>
-                <div className='search-bar'>
-                    <div className="c2">s</div>
                 </div>
             </div>
         );

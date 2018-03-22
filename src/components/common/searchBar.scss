@@ -1,19 +1,21 @@
-@import '../../stylesheets/grid';
+@import '../../stylesheets/variables';
+@import '~bootstrap/scss/mixins/breakpoints';
 
-.search-bar {
-  @include row();
-  background-color: aqua;
+$search-bar-padding: 0.7em;
+
+.container-fluid.search-container {
+  background-color: $color-primary;
+  padding-top: $search-bar-padding;
+  padding-bottom: $search-bar-padding;
+
+  img {
+    zoom: 0.6;
+  }
+
+  @include media-breakpoint-down(md) {
+    .logo {
+      padding-bottom: $small-space;
+    }
+  }
 }
 
-.logo {
-  @include col(1);
-  background-color: blueviolet;
-}
-.c1 {
-  @include col(1);
-  background-color: blueviolet;
-}
-.c2 {
-  @include col(2);
-  background-color: yellow;
-}
