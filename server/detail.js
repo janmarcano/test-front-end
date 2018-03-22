@@ -38,7 +38,7 @@ module.exports = function (req, res) {
                     if (!error) {
                         const data = JSON.parse(body);
                         if (!data.error) {
-                            detail.description = data.plain_text;
+                            detail.item.description = data.plain_text;
                         }
                         request('https://api.mercadolibre.com/categories/'+category, function(error, response, body) {
                             if (!error) {
