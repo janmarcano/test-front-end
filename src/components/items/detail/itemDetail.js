@@ -1,6 +1,11 @@
 import React from 'react';
 
 import { Categories } from "../categories";
+import { FormatNumber } from '../../common/formatNumber';
+
+import '../items.scss';
+import './itemDetail.scss';
+const ic_shipping = require('../../../assets/ic_shipping.png');
 
 export class ItemDetail extends React.Component {
 
@@ -33,22 +38,57 @@ export class ItemDetail extends React.Component {
 
     render() {
         const item = this.state.item;
+        const categories = this.state.categories;
         if (item.id) {
             return (
-                <div className="itemDetail">
-                    <img src={item.picture}/>
-                    <div>
-                        {item.condition == 'new' ? 'Nuevo' : 'Usado'}
-                        {item.sold_quantity>0 ? ` - ${item.sold_quantity} vendidos` : ''}
+                <div className="row no-gutters">
+                    <Categories className='col-12' categories={categories}/>
+                    <div className="col-12 items-container">
+                        <div className='row'>
+                            <div className='col'>
+                                <div className='picture'>
+                                    <img src={item.picture}/>
+                                </div>
+                            </div>
+                            <div className='col-4'>
+                                <div className='info'>
+                                    <div className='condition'>
+                                        {item.condition == 'new' ? 'Nuevo' : 'Usado'}
+                                        {item.sold_quantity>0 ? ` - ${item.sold_quantity} vendidos` : ''}
+                                    </div>
+                                    <div className='title'>
+                                            {item.title}
+                                    </div>
+                                    <div className='price'>
+                                        <span className='amount'>
+                                            $&nbsp;<FormatNumber value={item.price.amount}/>
+                                        </span>
+                                        <span className='decimals'>
+                                            &nbsp;{item.price.decimals>0 && item.price.decimals}
+                                        </span>
+                                        <span className='shipping'>
+                                            <img src={ic_shipping}/>
+                                        </span>
+                                    </div>
+                                    <div className='button-container'>
+                                        <button className='primary-button'>
+                                            Comprar
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {!!item.description && (
+                        <div className='row'>
+                            <div className='col'>
+                                <div className='description'>
+                                    <div className='title'>Descripción del producto</div>
+                                    <div className='content'>{item.description}</div>
+                                </div>
+                            </div>
+                        </div>
+                        )}
                     </div>
-                    <div>{item.title}</div>
-                    <div>$ {item.price.amount} {item.price.decimals>0 && item.price.decimals}</div>
-                    {!!item.description && (
-                    <div>
-                        <h1>Descripción del producto</h1>
-                        <span>{item.description}</span>
-                    </div>
-                    )}
                 </div>
             );
         } else if (this.state.noResults) {

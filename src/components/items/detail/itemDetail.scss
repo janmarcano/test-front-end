@@ -1,0 +1,50 @@
+@import '../../../stylesheets/variables';
+
+.picture {
+  height: $picture-size;
+  width: $picture-size;
+  img {
+    object-fit: contain;
+  }
+}
+
+.info {
+
+  padding-top: $big-space;
+
+  .condition {
+    font-size: $font-sm;
+    padding-bottom: $small-space;
+  }
+
+  .title {
+    font-size: $font-lg;
+    padding-bottom: $big-space;
+  }
+
+  .price {
+
+    padding-bottom: $big-space;
+    %adjust {
+      position: relative;
+      bottom: 14px;
+    }
+
+
+    .amount {
+      font-size: $font-xl;
+    }
+    .decimals {
+      font-size: $font-lg;
+      @extend %adjust;
+    }
+    .shipping {
+      @extend %adjust;
+      padding-left: 8px;
+    }
+  }
+
+  .button-container {
+    padding-right: $big-space;
+  }
+}
