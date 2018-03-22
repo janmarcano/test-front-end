@@ -5,7 +5,8 @@
 
 body {
   background-color: $light-gray;
-  font-family: $main-font;
+  font-size: $font-md;
+  font-weight: $regular;
 }
 
 @include media-breakpoint-up(sm) {
@@ -25,7 +26,10 @@ body {
   outline: none;
   border: none;
   font-size: $font-md;
-  color: $gray;
+  color: $black;
+  &::placeholder {
+    color: $gray;
+  }
 }
 
 %form-group-child {

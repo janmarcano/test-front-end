@@ -5,7 +5,7 @@ const queryString =  require('query-string');
 require('./stylesheets/main.scss');
 import { SearchBar } from './components/common/searchBar';
 import { Items } from './components/items/items';
-import { PageNotFound } from './components/common/pageNotFound';
+import { PageNotFound } from './components/pageNotFound';
 
 export class App extends React.Component {
 

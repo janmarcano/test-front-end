@@ -10,7 +10,6 @@ $color-primary: $yellow;
 $color-accent: $blue;
 
 // Fonts
-$main-font: -apple-system,Roboto,Helvetica,Arial,sans-serif;
 $light: 100;
 $regular: 400;
 $bold: 600;
@@ -21,7 +20,8 @@ $font-lg: 24px;
 $font-xl: 46px;
 
 // Layout
-$container-radius: 4px;
+$small-radius: 4px;
+$container-radius: $small-radius;
 $small-space: 16px;
 $big-space: 32px;
 $grid-breakpoints: (
@@ -34,8 +34,10 @@ $grid-breakpoints: (
 
 
 // Forms
-$form-group-radius: 2px;
+$form-group-radius: $small-radius;
 $form-group-padding: 10px 16px;
 
 // Images
-$image-radius: 4px;
+$thumbnail-size: 180px;
+$thumbnail-radius: $small-radius;
+$picture-size: 680px;

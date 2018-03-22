@@ -11,23 +11,19 @@ export class Categories extends React.Component {
 
     render() {
         const length = this.props.categories.length;
-        if (length) {
-            var list = [];
-            for (var i = 0; i < length - 1; i++) {
-                const category = this.props.categories[i];
-                list.push(<Category name={category} key={category}/>);
-                list.push(<Separator key={'separator'+i}/>);
-            }
-            const last = this.props.categories[length - 1];
-            list.push(<Category last name={last} key={last}/>);
-            return (
-                <div className='categories-container'>
-                    {list}
-                </div>
-            );
-        } else {
-            return null;
+        var list = [];
+        for (var i = 0; i < length - 1; i++) {
+            const category = this.props.categories[i];
+            list.push(<Category name={category} key={category}/>);
+            list.push(<Separator key={'separator'+i}/>);
         }
+        const last = this.props.categories[length - 1];
+        list.push(<Category last name={last} key={last}/>);
+        return (
+            <div className='categories-container'>
+                {length?list:<span>&nbsp;</span>}
+            </div>
+        );
     }
 }
 
