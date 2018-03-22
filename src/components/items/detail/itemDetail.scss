@@ -1,33 +1,61 @@
 @import '../../../stylesheets/variables';
+@import '~bootstrap/scss/mixins/breakpoints';
 
-.picture {
-  height: $picture-size;
-  width: $picture-size;
+.image-container {
+  @include media-breakpoint-down(sm) {
+    height: $picture-size/1.75;
+    width: $picture-size/1.75;
+  }
+  @include media-breakpoint-up(md) {
+    height: $picture-size/1.375;
+    width: $picture-size/1.375;
+  }
+  @include media-breakpoint-up(lg) {
+    height: $picture-size;
+    width: $picture-size;
+  }
 }
 
 .info {
 
-  padding-top: $big-space;
+  padding-top: $small-space;
+  padding-bottom: $large-space;
+  padding-left: $large-space;
+  padding-right: $large-space;
+  @include media-breakpoint-up(xl) {
+    padding-top: $large-space;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
   color: $black;
 
   .condition {
     font-size: $font-sm;
-    padding-bottom: $small-space;
+    @include media-breakpoint-up(sm) {
+      padding-bottom: $small-space;
+    }
   }
 
   .title {
     font-size: $font-lg;
-    padding-bottom: $big-space;
+    padding-right: $large-space;
+    @include media-breakpoint-up(md) {
+      padding-bottom: $small-space;
+    }
   }
 
   .price {
 
-    padding-bottom: $big-space;
+    padding-bottom: $large-space;
+    @include media-breakpoint-up(md) {
+      padding-bottom: $small-space;
+    }
+
     %adjust {
       position: relative;
       bottom: 14px;
     }
-
 
     .amount {
       font-size: $font-xl;
@@ -43,25 +71,31 @@
   }
 
   .button-container {
-    padding-right: $big-space;
+    @include media-breakpoint-up(xl) {
+      padding-right: $large-space;
+    }
   }
 }
 
 .description {
   $title-size: 28px;
   $content-size: 16px;
+  padding-left: $large-space;
 
-  padding-left: $big-space;
+  @include media-breakpoint-down(lg) {
+    padding-right: $large-space;
+  }
 
   .title {
     font-size: $title-size;
     color: $black;
-    padding-bottom: $big-space;
+    padding-bottom: $large-space;
   }
 
   .content {
     font-size: $content-size;
     color: $gray;
-    padding-bottom: $big-space;
+    padding-bottom: $large-space;
+    white-space: pre-line;
   }
 }

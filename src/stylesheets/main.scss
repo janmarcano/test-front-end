@@ -3,10 +3,12 @@
 @import '~bootstrap/scss/utilities/text';
 @import '_variables';
 
+// Layout
 body {
   background-color: $light-gray;
   font-size: $font-md;
   font-weight: $regular;
+  overflow-x: hidden;
 }
 
 @include media-breakpoint-up(sm) {
@@ -16,6 +18,7 @@ body {
   }
 }
 
+// Elements
 %button {
   outline: none;
   border: none;
@@ -87,8 +90,20 @@ a {
   }
 }
 
+// Helpers
 .fluid-image {
   height: 100%;
   width: 100%;
   object-fit: contain;
 }
+
+.xs-text-center {
+  @include media-breakpoint-only(xs) {
+    text-align: center;
+  }
+  .image-container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+

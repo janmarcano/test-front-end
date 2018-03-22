@@ -45,14 +45,14 @@ export class ItemDetail extends React.Component {
                 <div className="row no-gutters">
                     <Categories className='col-12' categories={categories}/>
                     <div className="col-12 items-container">
-                        <div className='row'>
+                        <div className='row xs-text-center'>
                             <div className='col'>
-                                <div className='picture'>
+                                <div className='image-container'>
                                     <img className='fluid-image' src={item.picture}/>
                                 </div>
                             </div>
                             <div className='col'>
-                                <div className='info'>
+                                <div className='info xs-text-center'>
                                     <div className='condition'>
                                         {item.condition == 'new' ? 'Nuevo' : 'Usado'}
                                         {item.sold_quantity>0 ? ` - ${item.sold_quantity} vendidos` : ''}
@@ -79,10 +79,9 @@ export class ItemDetail extends React.Component {
                                 </div>
                             </div>
                         </div>
-                        <span>{!!item.description}</span>
                         {!!item.description && (
-                        <div className='row'>
-                            <div className='col-8'>
+                        <div className='row xs-text-center'>
+                            <div className='col-xl-8'>
                                 <div className='description'>
                                     <div className='title'>Descripción del producto</div>
                                     <div className='content'>{item.description}</div>

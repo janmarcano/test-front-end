@@ -9,15 +9,15 @@ const ic_shipping = require('../../../assets/ic_shipping.png');
 export function Item(props) {
     return (
         <div className='item'>
-            <div className='row no-gutters'>
+            <div className='row no-gutters xs-text-center'>
                 <div className='col-sm-auto'>
                     <Link to={`/items/${props.id}`}>
-                        <div className='thumbnail'>
+                        <div className='image-container'>
                             <img className='fluid-image' src={props.picture}/>
                         </div>
                     </Link>
                 </div>
-                <div className='col'>
+                <div className='col-sm'>
                     <div className='price'>
                         <span className='amount'>
                             $&nbsp;<FormatNumber value={props.price}/>
@@ -37,7 +37,7 @@ export function Item(props) {
                         <div className='title'>{props.title}</div>
                     </Link>
                 </div>
-                <div className='col-2'>
+                <div className='col-sm-2'>
                     <div className='address'>{props.address}</div>
                 </div>
             </div>
