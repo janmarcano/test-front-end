@@ -13,7 +13,7 @@ export function Item(props) {
                 <div className='col-sm-auto'>
                     <Link to={`/items/${props.id}`}>
                         <div className='thumbnail'>
-                            <img src={props.picture}/>
+                            <img className='fluid-image' src={props.picture}/>
                         </div>
                     </Link>
                 </div>

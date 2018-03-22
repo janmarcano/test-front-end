@@ -12,12 +12,10 @@
   }
 
   .thumbnail {
-    padding: $small-space;
-    img {
-      height: $thumbnail-size;
-      width: $thumbnail-size;
-      border-radius: $thumbnail-radius;
-    }
+    margin: $small-space;
+    height: $thumbnail-size;
+    width: $thumbnail-size;
+    border-radius: $thumbnail-radius;
   }
 
   .price {
