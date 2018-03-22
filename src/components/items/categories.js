@@ -3,8 +3,6 @@ import { ChevronRight } from 'react-bytesize-icons';
 
 import './categories.scss';
 
-const chevron = require('../../assets/ic_chevron_right.svg');
-
 export class Categories extends React.Component {
 
     constructor(props) {
