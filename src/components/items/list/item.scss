@@ -1,0 +1,55 @@
+@import '../../../stylesheets/variables';
+
+.item {
+  $separator-distance: 2%;
+  &:after {
+    content: '';
+    position: absolute;
+    left: $separator-distance;
+    width: 100% - $separator-distance*2;
+    height: 1px;
+    background-color: $light-gray;
+  }
+
+  .thumbnail {
+    padding: $small-space;
+    img {
+      height: $thumbnail-size;
+      width: $thumbnail-size;
+      border-radius: $thumbnail-radius;
+    }
+  }
+
+
+
+  .price {
+
+    %adjust {
+      position: relative;
+      bottom: 4px;
+    }
+
+    padding: $big-space 0;
+
+    .amount {
+      font-size: $font-lg;
+    }
+    .decimals {
+      font-size: $font-md;
+      @extend %adjust;
+    }
+    .shipping {
+      @extend %adjust;
+      padding-left: 8px;
+      img {
+        zoom: 0.6;
+      }
+     }
+  }
+
+  .address {
+    font-size: $font-xs;
+    color: $dark-gray;
+    padding-top: $big-space*2;
+  }
+}

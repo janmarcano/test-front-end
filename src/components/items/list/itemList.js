@@ -4,6 +4,8 @@ import { Categories } from "../categories";
 import { Item } from "./item";
 import queryString from "query-string";
 
+import '../items.scss';
+
 export class ItemList extends React.Component {
 
     constructor(props) {
@@ -32,9 +34,11 @@ export class ItemList extends React.Component {
                             address={item.address}
                         />;
             });
-            return (<div className="itemList">
-                        <Categories categories={categories}/>
-                        {list}
+            return (<div className="row no-gutters">
+                        <Categories className='col-12' categories={categories}/>
+                        <div className='col-12 items-container'>
+                            {list}
+                        </div>
                     </div>);
         } else if (this.state.noResults) {
             return <span>No hay resultados para esta búsqueda</span>
@@ -42,7 +46,9 @@ export class ItemList extends React.Component {
     }
 
     componentDidMount() {
-        this.getItems();
+        if (this.getQuery()) {
+            this.getItems();
+        }
     }
 
     componentDidUpdate(prevProps) {
@@ -57,8 +63,7 @@ export class ItemList extends React.Component {
     }
 
     getItems() {
-        const search = queryString.parse(location.search);
-        const query = search.search;
+        const query = this.getQuery();
         fetch('/api/items?q=' + query)
         .then((results) => {
             return results.json()
@@ -69,5 +74,10 @@ export class ItemList extends React.Component {
                 noResults: !!data.items
             });
         });
+    }
+
+    getQuery() {
+        const search = queryString.parse(location.search);
+        return search.search;
     }
 }
