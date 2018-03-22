@@ -20,10 +20,11 @@ $font-lg: 24px;
 $font-xl: 46px;
 
 // Layout
+$container-padding: 3em;
 $small-radius: 4px;
-$container-radius: $small-radius;
 $small-space: 16px;
 $big-space: 32px;
+$container-radius: $small-radius;
 $grid-breakpoints: (
   xs: 0,
   sm: 576px,
@@ -36,6 +37,7 @@ $grid-breakpoints: (
 // Forms
 $form-group-radius: $small-radius;
 $form-group-padding: 10px 16px;
+$button-radius: 8px;
 
 // Images
 $thumbnail-size: 180px;

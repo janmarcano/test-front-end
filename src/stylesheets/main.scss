@@ -11,14 +11,15 @@ body {
 
 @include media-breakpoint-up(sm) {
   .container-fluid {
-    padding-left: 5em;
-    padding-right: 5em;
+    padding-left: $container-padding;
+    padding-right: $container-padding;
   }
 }
 
 %button {
   outline: none;
   border: none;
+  border-radius: $button-radius;
   font-size: $font-md;
 }
 
@@ -67,6 +68,8 @@ body {
 }
 
 .primary-button {
+  @extend %button;
+  color: white;
   background-color: $blue;
   padding: $small-space;
   width: 100%;
