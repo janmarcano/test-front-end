@@ -1,0 +1,16 @@
+@import '../../stylesheets/_variables';
+
+$separation: 6px;
+
+.categories-container {
+  padding-top: $small-space;
+  padding-bottom: $small-space;
+  font-size: 14px;
+  span {
+    color: $gray;
+    padding-right: $separation;
+    &.last {
+      font-weight: $bold;
+    }
+  }
+}

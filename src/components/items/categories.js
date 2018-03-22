@@ -1,4 +1,9 @@
 import React from 'react';
+import { ChevronRight } from 'react-bytesize-icons';
+
+import './categories.scss';
+
+const chevron = require('../../assets/ic_chevron_right.svg');
 
 export class Categories extends React.Component {
 
@@ -13,10 +18,15 @@ export class Categories extends React.Component {
             for (var i = 0; i < length - 1; i++) {
                 const category = this.props.categories[i];
                 list.push(<Category name={category} key={category}/>);
+                list.push(<Separator key={'separator'+i}/>);
             }
             const last = this.props.categories[length - 1];
             list.push(<Category last name={last} key={last}/>);
-            return <div>{list}</div>;
+            return (
+                <div className='categories-container'>
+                    {list}
+                </div>
+            );
         } else {
             return null;
         }
@@ -25,11 +35,16 @@ export class Categories extends React.Component {
 
 function Category(props) {
     return (
-        <span className={(props.last?'last':'')+"category"}>
+        <span className={props.last?'last':''}>
             {props.name}
-            { !props.last &&
-                <i className="separator">{">"}</i>
-            }
         </span>
     );
+}
+
+function Separator() {
+    return (
+        <span>
+            <ChevronRight height={10} width={10} strokeWidth='10.9375%'/>
+        </span>
+    )
 }
