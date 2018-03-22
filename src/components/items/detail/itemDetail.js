@@ -47,7 +47,7 @@ export class ItemDetail extends React.Component {
                     <div className="col-12 items-container">
                         <div className='row xs-text-center'>
                             <div className='col'>
-                                <div className='image-container'>
+                                <div className='picture image-container'>
                                     <img className='fluid-image' src={item.picture}/>
                                 </div>
                             </div>
@@ -64,12 +64,16 @@ export class ItemDetail extends React.Component {
                                         <span className='amount'>
                                             $&nbsp;<FormatNumber value={item.price.amount}/>
                                         </span>
+                                        {item.price.decimals>0 &&
                                         <span className='decimals'>
-                                            &nbsp;{item.price.decimals>0 && item.price.decimals}
+                                            &nbsp;{item.price.decimals}
                                         </span>
+                                        }
+                                        {item.free_shipping &&
                                         <span className='shipping'>
                                             <img src={ic_shipping}/>
                                         </span>
+                                        }
                                     </div>
                                     <div className='button-container'>
                                         <button className='primary-button'>
@@ -81,7 +85,7 @@ export class ItemDetail extends React.Component {
                         </div>
                         {!!item.description && (
                         <div className='row xs-text-center'>
-                            <div className='col-xl-8'>
+                            <div className='col-lg-9 col-xl-7'>
                                 <div className='description'>
                                     <div className='title'>Descripción del producto</div>
                                     <div className='content'>{item.description}</div>

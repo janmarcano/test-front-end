@@ -12,7 +12,7 @@
     background-color: $light-gray;
   }
 
-  .image-container {
+  .thumbnail.image-container {
     padding: $small-space;
     height: $thumbnail-size + $small-space*2;
     width: $thumbnail-size + $small-space*2;
@@ -20,11 +20,6 @@
   }
 
   .price {
-
-    %adjust {
-      position: relative;
-      bottom: 4px;
-    }
 
     @include media-breakpoint-up(sm) {
       padding: $large-space 0;
@@ -35,10 +30,12 @@
     }
     .decimals {
       font-size: $font-md;
-      @extend %adjust;
+      position: relative;
+      bottom: 4px;
     }
     .shipping {
-      @extend %adjust;
+      position: relative;
+      top: 2px;
       padding-left: 8px;
       img {
         zoom: 0.6;
