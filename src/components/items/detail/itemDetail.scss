@@ -3,14 +3,12 @@
 .picture {
   height: $picture-size;
   width: $picture-size;
-  img {
-    object-fit: contain;
-  }
 }
 
 .info {
 
   padding-top: $big-space;
+  color: $black;
 
   .condition {
     font-size: $font-sm;
@@ -46,5 +44,24 @@
 
   .button-container {
     padding-right: $big-space;
+  }
+}
+
+.description {
+  $title-size: 28px;
+  $content-size: 16px;
+
+  padding-left: $big-space;
+
+  .title {
+    font-size: $title-size;
+    color: $black;
+    padding-bottom: $big-space;
+  }
+
+  .content {
+    font-size: $content-size;
+    color: $gray;
+    padding-bottom: $big-space;
   }
 }

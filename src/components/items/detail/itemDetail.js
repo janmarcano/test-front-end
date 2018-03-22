@@ -27,6 +27,7 @@ export class ItemDetail extends React.Component {
             if (data.status == 404) {
                 this.setState({noResults: true});
             } else {
+                console.log(data.item);
                 this.setState({
                     item: data.item,
                     categories: data.categories,
@@ -47,10 +48,10 @@ export class ItemDetail extends React.Component {
                         <div className='row'>
                             <div className='col'>
                                 <div className='picture'>
-                                    <img src={item.picture}/>
+                                    <img className='fluid-image' src={item.picture}/>
                                 </div>
                             </div>
-                            <div className='col-4'>
+                            <div className='col'>
                                 <div className='info'>
                                     <div className='condition'>
                                         {item.condition == 'new' ? 'Nuevo' : 'Usado'}
@@ -78,9 +79,10 @@ export class ItemDetail extends React.Component {
                                 </div>
                             </div>
                         </div>
+                        <span>{!!item.description}</span>
                         {!!item.description && (
                         <div className='row'>
-                            <div className='col'>
+                            <div className='col-8'>
                                 <div className='description'>
                                     <div className='title'>Descripción del producto</div>
                                     <div className='content'>{item.description}</div>
